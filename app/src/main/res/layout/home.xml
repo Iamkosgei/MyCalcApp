@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+<variable
+    name="home"
+    type="com.iamkosgei.mycalcapp.Home" />
+</data>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textAllCaps="true"
+            android:text="@string/calculator"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/num_1"
+                android:layout_width="100dp"
+                android:layout_marginEnd="4dp"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:hint="@string/number_1"
+                android:background="@drawable/custom_ed"
+                android:layout_height="80dp"/>
+
+            <EditText
+                android:id="@+id/num_2"
+                android:layout_width="100dp"
+                android:inputType="number"
+                android:layout_marginStart="4dp"
+                android:textAlignment="center"
+                android:hint="@string/number_2"
+                android:background="@drawable/custom_ed"
+                android:layout_height="80dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/add"
+                android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_btn" />
+            <Button
+                android:id="@+id/divide"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="@string/divide"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_btn" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/subtract"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/subtract"
+                android:layout_marginEnd="4dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_btn" />
+            <Button
+                android:id="@+id/multiply"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="@string/multiply"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_btn" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/result"
+            android:layout_width="100dp"
+            android:layout_marginEnd="4dp"
+            android:inputType="number"
+            android:focusable="false"
+            android:editable="false"
+            android:textAlignment="center"
+            android:hint="@string/result"
+            android:background="@drawable/custom_ed"
+            android:layout_height="80dp"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</ScrollView>
+</layout>
