@@ -7,5 +7,6 @@
     <string name="divide">divide</string>
     <string name="subtract">subtract</string>
     <string name="multiply">multiply</string>
-    <string name="result">result</string>
+    <string name="result">results</string>
+    <string name="please_input_numbers">Please input numbers</string>
 </resources>

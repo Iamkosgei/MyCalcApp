@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.iamkosgei.mycalcapp.databinding.HomeBinding;
+import com.iamkosgei.mycalcapp.helpers.Util;
 import com.iamkosgei.mycalcapp.services.CalcService;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
@@ -50,39 +51,52 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         //get the input values
-        double number1 = Double.parseDouble(binding.num1.getText().toString());
-        double number2 = Double.parseDouble(binding.num2.getText().toString());
+        String num1Str = binding.num1.getText().toString();
+        String num2Str= binding.num2.getText().toString();
 
-        switch (view.getId()){
-            case R.id.add:
-                try{
-                    binding.result.setText(String.valueOf(calcService.add(number1, number2)));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case R.id.divide:
-                try{
-                    binding.result.setText(String.valueOf(calcService.divide(number1, number2)));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case R.id.subtract:
-                try{
-                    binding.result.setText(String.valueOf(calcService.subtract(number1, number2)));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case R.id.multiply:
-                try{
-                    binding.result.setText(String.valueOf(calcService.multiply(number1, number2)));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-                break;
+
+        if (Util.isNumeric(num1Str) && Util.isNumeric(num2Str)){
+            double number1 = Double.parseDouble(num1Str);
+            double number2 = Double.parseDouble(num2Str);
+
+            switch (view.getId()){
+                case R.id.add:
+                    try{
+                        binding.result.setText(String.valueOf(calcService.add(number1, number2)));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case R.id.divide:
+                    try{
+                        binding.result.setText(String.valueOf(calcService.divide(number1, number2)));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case R.id.subtract:
+                    try{
+                        binding.result.setText(String.valueOf(calcService.subtract(number1, number2)));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case R.id.multiply:
+                    try{
+                        binding.result.setText(String.valueOf(calcService.multiply(number1, number2)));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+
+
         }
+        else {
+            Toast.makeText(this, R.string.please_input_numbers, Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     class CalcServiceConnection implements ServiceConnection{
